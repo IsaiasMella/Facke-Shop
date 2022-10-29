@@ -1,0 +1,91 @@
+button {
+    position: relative;
+    padding: .8em 1.3em;
+    outline: none;
+    background: transparent;
+    color: #ae00ff;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 15px;
+    overflow: hidden;
+    transition: 0.2s;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    border: 1px solid transparent;
+}
+
+button span {
+    position: absolute;
+}
+
+button span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ae00ff);
+}
+
+button:hover span:nth-child(1) {
+    left: 100%;
+    transition: 0.5s;
+}
+
+button span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ae00ff);
+}
+
+button:hover span:nth-child(3) {
+    right: 100%;
+    transition: 0.5s;
+    transition-delay: 0.35s;
+}
+
+button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #ae00ff);
+}
+
+button:hover span:nth-child(2) {
+    top: 100%;
+    transition: 0.5s;
+    transition-delay: 0.17s;
+}
+
+button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #ae00ff);
+}
+
+button:hover span:nth-child(4) {
+    bottom: 100%;
+    transition: 0.5s;
+    transition-delay: .52s;
+}
+
+button:active {
+    background: #ae00ff;
+    box-shadow: 0 0 10px #ae00ff, 0 0 25px #ae00ff, 0 0 50px #ae00ff;
+    color: #fff;
+    border: 1px solid #fff;
+    transition: 0.1s;
+}
+
+button:active span:nth-child(1) span:nth-child(2) span:nth-child(2) span:nth-child(2) {
+    transition: none;
+    transition-delay: none;
+}
