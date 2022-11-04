@@ -1,11 +1,13 @@
 import './App.css'
-import Hero from './Components/Hero/Hero'
+import NavBar from './Components/NavBar/NavBar'
+import Home from './Pages/Home/Home'
 
 function App() {
 
   return (
     <div className="App">
-     <Hero />
+      <NavBar />
+      <Home />
     </div>
   )
 }
