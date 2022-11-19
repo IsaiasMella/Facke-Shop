@@ -1,8 +1,11 @@
 .prueba{
-    height: 50vh;
-    width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+    width: 80%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 50px;
+    /* overflow-x: auto; */
+    padding-left: 50px;
 }

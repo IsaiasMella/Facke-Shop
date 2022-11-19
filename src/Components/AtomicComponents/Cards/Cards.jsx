@@ -1,16 +1,18 @@
 import React from "react";
 import "./Cards.css";
 
-const Cards = () => {
+const Cards = ({ title, price, img }) => {
   return (
-    <div className="container__card active__card">
-      <img src="https://cdn.shopify.com/s/files/1/0537/9483/2552/products/PythonLat_150x150.png?v=1614389630" alt="" />
-      <div className="container__card-text active">
-        <div className="card__title active">
-          <h4>Titulo Articulo</h4>
-          <div className="container__stock active">
+    <div className="container__card">
+      <div className="container__img">
+        <img src={`${img}`} alt={`${title}`} />
+      </div>
+      <div className="container__card-text">
+        <div className="card__title">
+          <h4>{`${title}`}</h4>
+          <div className="container__stock">
             <small>Stock</small>
-            <p className="unit">17</p>
+            <p className="unit">{Math.floor(Math.random() * 10)+1}</p>
             <small>Unidades</small>
           </div>
         </div>
@@ -24,7 +26,10 @@ const Cards = () => {
           minima, aspernatur exercitationem?
         </p>
       </div>
-        <p className="price active"><strong>$3.72</strong></p>
+      <div className="container__card-pricing " >
+
+        <p className="price"><strong>{`$ ${price}`}</strong></p>
+      </div>
     </div>
   );
 };

@@ -1,14 +1,15 @@
 import React from 'react'
 import Buttons from '../AtomicComponents/Buttons/Buttons'
+import Logo from '../../Images/FackeShop.png'
 import './Hero.css'
 
 const Hero = () => {
+
     return (
         <div className='container__hero'>
             <div className="container__hero-text">
                 <div className="hero__text">
-                    <h1>Hardware Bahia</h1>
-                    <p>algo se me va a ocurrir</p>
+                    <img src={Logo} alt='FackeShop' />
                 </div>
                 <div className="container__button-hero">
                     <Buttons text='¡lo quiero ya!' />
