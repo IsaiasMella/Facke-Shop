@@ -1,6 +1,6 @@
 # Facke Shop (En construcción)
 
-![ttt](https://user-images.githubusercontent.com/67384494/186704461-7da26d49-8215-4022-b344-f5b5767d19cc.jpg)
+![FackeShop](https://user-images.githubusercontent.com/67384494/202916767-eaa8073d-6a36-4245-9b68-1d2a6f4f3392.png)
 
 Descripción del proyecto
 
