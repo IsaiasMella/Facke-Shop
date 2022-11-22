@@ -1,4 +1,4 @@
-.container__intereses-populares{
+.container__intereses-populares {
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -7,13 +7,32 @@
     margin: 0 auto;
 }
 
-.conatiner__intereses{
+.container__intereses {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    justify-items:center;
+    justify-items: center;
     justify-content: space-around;
     align-content: flex-end;
     gap: 10px;
     row-gap: 50px;
     height: 35vh;
+}
+
+.container__category {
+    width: 80%;
+    height: 70vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-top: 50px;
+    overflow: hidden;
+}
+
+.container__cards{
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+    padding: 0 15px;
 }

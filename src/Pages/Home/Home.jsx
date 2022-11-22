@@ -18,31 +18,52 @@ const Home = () => {
       {console.log(category)}
       <div className="container__intereses-populares">
         <Titles title='Esto te puede Interesar' />
-        <div className="conatiner__intereses">
+        <div className="container__intereses">
           <Intereses tipo='Ofertas' img={Hot_Sale} />
           <Intereses tipo='Smartphones' img='https://es.directunlocks.com/devices/compressed/iphone14better.png?v=4' />
           <Intereses tipo='Notebooks' img='https://www.venex.com.ar/products_images/1650479563_1640352500_lenovo_v15_g2_itl_ct1_04.png' />
           <Intereses tipo='Hogar' img='https://arizahome.com/wp-content/uploads/2021/08/Mueble-Sofa-Premier.webp' />
           <Intereses tipo='Perfumes' img='https://sumafar.com.ar/wp-content/uploads/2020/08/ROCK-SHAKIRA.png' />
         </div>
-      <Titles title='Tecnología' />
-      <Titles title='Salud y Belleza' />
       </div>
-      {/* <div className="prueba">
-        {console.log(data)}
-        {loading ?
-          "loading..."
-          :
-          data.products.map(data => {
-            return <Cards
-              key={data.id}
-              title={data.title}
-              price={data.price}
-              img={data.images[0]}
-            />
-          }
-          )}
-      </div> */}
+      <div className="container__category">
+        <Titles title='Tecnología' />
+        <div className="container__cards">
+          {loading ?
+            "loading..."
+            :
+            data.products.map(data => {
+              if (data.category === "smartphones" || data.category === "laptops") {
+                return <Cards
+                  key={data.id}
+                  title={data.title}
+                  price={data.price}
+                  img={data.images[0]}
+                />
+              }
+            }
+            )}
+        </div>
+      </div>
+      <div className="container__category">
+      <Titles title='Salud y Belleza' />
+        <div className="container__cards">
+          {loading ?
+            "loading..."
+            :
+            data.products.map(data => {
+              if (data.category === "skincare" || data.category === "womens-bags") {
+                return <Cards
+                  key={data.id}
+                  title={data.title}
+                  price={data.price}
+                  img={data.images[0]}
+                />
+              }
+            }
+            )}
+        </div>
+      </div>
     </div>
   );
 };
