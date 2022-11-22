@@ -1,6 +1,7 @@
 import React from 'react'
 import Buttons from '../AtomicComponents/Buttons/Buttons'
 import Logo from '../../Images/FackeShop.png'
+import Img_Hero from '../../Images/FakceProducts/Sennheiser.png'
 import './Hero.css'
 
 const Hero = () => {
@@ -17,7 +18,7 @@ const Hero = () => {
             </div>
 
             <picture className="hero__picture" >
-                <img src="https://www.pngmart.com/files/6/Sennheiser-Headphone-PNG-Photo.png" alt="principal product" />
+                <img src={Img_Hero} alt="principal product" />
             </picture>
         </div>
     )

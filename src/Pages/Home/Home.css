@@ -1,11 +1,19 @@
-.prueba{
-    margin: 0 auto;
-    height: 100vh;
+.container__intereses-populares{
     width: 80%;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 50px;
-    /* overflow-x: auto; */
-    padding-left: 50px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    margin: 0 auto;
+}
+
+.conatiner__intereses{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-items:center;
+    justify-content: space-around;
+    align-content: flex-end;
+    gap: 10px;
+    row-gap: 50px;
+    height: 35vh;
 }

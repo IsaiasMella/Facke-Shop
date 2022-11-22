@@ -27,7 +27,6 @@ const Cards = ({ title, price, img }) => {
         </p>
       </div>
       <div className="container__card-pricing " >
-
         <p className="price"><strong>{`$ ${price}`}</strong></p>
       </div>
     </div>
