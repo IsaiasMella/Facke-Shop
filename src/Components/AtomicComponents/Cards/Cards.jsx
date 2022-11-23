@@ -1,4 +1,5 @@
 import React from "react";
+import AddCart from "../../../Icons/AddCart";
 import "./Cards.css";
 
 const Cards = ({ title, price, img }) => {
@@ -28,6 +29,9 @@ const Cards = ({ title, price, img }) => {
       </div>
       <div className="container__card-pricing " >
         <p className="price"><strong>{`$ ${price}`}</strong></p>
+        <div className="add_cart">
+          <AddCart stroke='var(--black)' />
+        </div>
       </div>
     </div>
   );

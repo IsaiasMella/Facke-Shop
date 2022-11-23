@@ -15,11 +15,11 @@
 .container__card:hover {
     transform: translateY(-2%);
     box-shadow: 15px 20px 15px #bebebe,
-                -5px -5px 18px #ffffff;
+        -5px -5px 18px #ffffff;
     transition: all .2s ease-in-out;
 }
 
-.container__img{
+.container__img {
     width: 100%;
     height: 50%;
     margin-bottom: 25px;
@@ -31,14 +31,16 @@
     margin: 0 auto;
     object-fit: contain;
 }
-.card__title>h4{
+
+.card__title>h4 {
     line-height: 15px;
 }
+
 .container__card:hover .card__title>h4 {
     color: var(--violet);
 }
 
-.container__card-text{
+.container__card-text {
     width: 90%;
     margin: 0 auto;
 }
@@ -61,4 +63,17 @@
     align-items: center;
     margin: 0 auto;
     margin-top: 8px;
+}
+
+.add_cart{
+    transition: .2s ease-in-out;
+}
+
+.add_cart:hover{
+    transform: scale(1.2) translateY(-2px);
+}
+
+.add_cart:hover>svg>path{
+    stroke: var(--violet);
+    
 }

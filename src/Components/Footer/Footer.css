@@ -60,11 +60,14 @@
 
 .RRSS:hover>svg>path {
     stroke: #bd33fd;
+    transition: stroke .2s ease-in-out;
 }
 
 .RRSS:hover>svg>g>path,
-.RRSS:hover>svg>g>rect{    fill: #bd33fd !important;
+.RRSS:hover>svg>g>rect{    
+    fill: #bd33fd !important;
     stroke: #bd33fd !important;
+    transition: stroke,fill .2s ease-in-out;
 }
 
 .mail{
@@ -84,6 +87,7 @@ tool-tip{
     color: var(--black);
     padding: .6em .9em;
     text-align: center;
+    transition: opacity .2s ease-in-out;
 }
 
 .mail:hover>tool-tip{
