@@ -1,7 +1,7 @@
 import React from 'react'
 import Buttons from '../AtomicComponents/Buttons/Buttons'
 import Logo from '../../Images/FackeShop.png'
-import Img_Hero from '../../Images/FakceProducts/Sennheiser.png'
+import Img_Hero from '../../Images/FakeProducts/Sennheiser.png'
 import './Hero.css'
 
 const Hero = () => {

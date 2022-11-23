@@ -19,4 +19,6 @@
   -webkit-text-size-adjust: 100%;
 
   --violet: #ae00ff;
+  --black:#3b3b3b;
+  cursor: default;
 }

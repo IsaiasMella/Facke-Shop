@@ -10,13 +10,13 @@
     background: #fff;
     /* box-shadow: 15px 15px 30px #bebebe,
                 -15px -15px 30px #ffffff; */
-                border: 1px solid #d4d4d4;
+    border: 1px solid #d4d4d4;
     cursor: pointer;
 }
 
 .container__card:hover {
     transform: translateY(-2%);
-    box-shadow: 25px 35px 40px #bebebe,
+    box-shadow: 25px 35px 25px #bebebe,
                 -5px -5px 18px #ffffff;
     transition: all .2s ease-in-out;
 }

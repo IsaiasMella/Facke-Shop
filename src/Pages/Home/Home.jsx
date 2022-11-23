@@ -4,7 +4,7 @@ import Intereses from "../../Components/AtomicComponents/Intereses/Intereses";
 import Titles from "../../Components/AtomicComponents/Titles/Titles";
 import Hero from "../../Components/Hero/Hero";
 import useFetch from "../../Hooks/useFetch";
-import Hot_Sale from '../../Images/FakceProducts/Hot_Sale.png'
+import Hot_Sale from '../../Images/FakeProducts/Hot_Sale.png'
 import ArticlePage from "../ArticlePage/ArticlePage";
 import "./Home.css";
 

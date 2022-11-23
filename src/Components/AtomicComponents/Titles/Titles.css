@@ -1,4 +1,4 @@
 .title{
     font-size: 2rem;
-    color: #3b3b3b;
+    color: var(--black);
 }
