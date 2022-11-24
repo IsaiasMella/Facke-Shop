@@ -1,0 +1,40 @@
+.container__arrow_button{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 45%;
+    background-color: var(--black);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 15px #bebebe;
+    z-index: 250;
+}
+
+.container__arrow_button:hover{
+    background-color: var(--violet);
+}
+
+.left{
+    left: -1%; 
+}
+
+.left>svg{
+    transform: rotate(180deg);
+}
+
+.left:hover{
+    transform: translateY(-3px) translateX(-3px);
+    transition: transform .2s ease-in-out;
+}
+
+.rigth{
+    right: -2.5%;
+}
+
+.rigth:hover{
+    transform: translateY(-3px) translateX(3px);
+    transition: transform .2s ease-in-out;
+}

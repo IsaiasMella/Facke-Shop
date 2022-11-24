@@ -3,6 +3,7 @@ import TotalCart from "../../Icons/TotalCart";
 import Logout from "../../Icons/Logout";
 import F from '../../Images/F.png'
 import "./NavBar.css";
+import User from "../../Icons/User";
 
 const NavBar = () => {
   return (
@@ -16,6 +17,9 @@ const NavBar = () => {
           <li className="nav-item">Nosotros</li>
           <div className="container__cart">
             <TotalCart stroke={'#fff'} />
+          </div>
+          <div className="container__user">
+            <User stroke={'#fff'} />
           </div>
           <div className="container__logout">
             <Logout stroke='#fff' />

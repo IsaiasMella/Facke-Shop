@@ -7,8 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 300;
-    
+    z-index: 300;   
 }
 
 .navbar__active{
@@ -53,7 +52,8 @@
 }
 
 .container__cart,
-.container__logout {
+.container__logout,
+.container__user {
     height: 100%;
     cursor: pointer;
     display: flex;
@@ -61,7 +61,8 @@
     align-items: flex-start;
 }
 
-.container__logout:hover>svg>path{
+.container__logout:hover>svg>path,
+.container__user:hover>svg>path{
     stroke: var(--violet);
     transform: scale(1.1) translateY(-1px) translateX(-1px);
     transition-property: transform,translateY;

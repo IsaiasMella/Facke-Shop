@@ -1,4 +1,5 @@
 import React from "react";
+import ButtonArrow from "../../Components/AtomicComponents/Buttons/ButtonsCarrousel/ButtonArrow";
 import Cards from "../../Components/AtomicComponents/Cards/Cards";
 import Intereses from "../../Components/AtomicComponents/Intereses/Intereses";
 import Titles from "../../Components/AtomicComponents/Titles/Titles";
@@ -16,6 +17,7 @@ const Home = () => {
     <div>
       <Hero />
       {console.log(category)}
+      {/*Seccion Intereses*/}
       <div className="container__intereses-populares">
         <Titles title='Esto te puede Interesar' />
         <div className="container__intereses">
@@ -26,43 +28,55 @@ const Home = () => {
           <Intereses tipo='Perfumes' img='https://sumafar.com.ar/wp-content/uploads/2020/08/ROCK-SHAKIRA.png' />
         </div>
       </div>
+
+      {/*Seccion Tecnologia*/}
       <div className="container__category">
-        <Titles title='Tecnología' />
-        <div className="container__cards">
-          {loading ?
-            "loading..."
-            :
-            data.products.map(data => {
-              if (data.category === "smartphones" || data.category === "laptops") {
-                return <Cards
-                  key={data.id}
-                  title={data.title}
-                  price={data.price}
-                  img={data.images[0]}
-                />
+        <ButtonArrow tipo='left' />
+        <div className="category">
+          <Titles title='Tecnología' />
+          <div className="container__cards">
+            {loading ?
+              "loading..."
+              :
+              data.products.map(data => {
+                if (data.category === "smartphones" || data.category === "laptops") {
+                  return <Cards
+                    key={data.id}
+                    title={data.title}
+                    price={data.price}
+                    img={data.images[0]}
+                  />
+                }
               }
-            }
-            )}
+              )}
+          </div>
         </div>
+        <ButtonArrow tipo='rigth' />
       </div>
+
+      {/*Seccion Belleza y salud*/}
       <div className="container__category">
-      <Titles title='Salud y Belleza' />
-        <div className="container__cards">
-          {loading ?
-            "loading..."
-            :
-            data.products.map(data => {
-              if (data.category === "skincare" || data.category === "womens-bags") {
-                return <Cards
-                  key={data.id}
-                  title={data.title}
-                  price={data.price}
-                  img={data.images[0]}
-                />
+        <ButtonArrow tipo='left' />
+        <div className="category">
+          <Titles title='Salud y Belleza' />
+          <div className="container__cards">
+            {loading ?
+              "loading..."
+              :
+              data.products.map(data => {
+                if (data.category === "skincare" || data.category === "womens-bags") {
+                  return <Cards
+                    key={data.id}
+                    title={data.title}
+                    price={data.price}
+                    img={data.images[0]}
+                  />
+                }
               }
-            }
-            )}
+              )}
+          </div>
         </div>
+        <ButtonArrow tipo='rigth' />
       </div>
     </div>
   );

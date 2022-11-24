@@ -67,6 +67,8 @@
 
 .add_cart{
     transition: .2s ease-in-out;
+    display: flex;
+    align-items: center;
 }
 
 .add_cart:hover{
