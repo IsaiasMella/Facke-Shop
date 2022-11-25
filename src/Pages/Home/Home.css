@@ -23,12 +23,6 @@
     width: 80%;
     height: 80vh;
     margin: 0 auto;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    padding-bottom: 70px;
-    padding-left: 20px; */
     position: relative;
 }
 
@@ -43,7 +37,6 @@
     overflow:hidden;
     padding-bottom: 70px;
     padding-left: 20px;
-    /* position: relative; */
 }
 
 .container__cards{

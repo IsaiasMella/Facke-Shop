@@ -5,8 +5,8 @@ import Intereses from "../../Components/AtomicComponents/Intereses/Intereses";
 import Titles from "../../Components/AtomicComponents/Titles/Titles";
 import Hero from "../../Components/Hero/Hero";
 import useFetch from "../../Hooks/useFetch";
+import Loader from "../../Icons/Loader/Loader";
 import Hot_Sale from '../../Images/FakeProducts/Hot_Sale.png'
-import ArticlePage from "../ArticlePage/ArticlePage";
 import "./Home.css";
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <div>
       <Hero />
-      {console.log(category)}
+      {/* {console.log(category)} */}
       {/*Seccion Intereses*/}
       <div className="container__intereses-populares">
         <Titles title='Esto te puede Interesar' />
@@ -36,12 +36,13 @@ const Home = () => {
           <Titles title='Tecnología' />
           <div className="container__cards">
             {loading ?
-              "loading..."
+              <Loader />
               :
               data.products.map(data => {
                 if (data.category === "smartphones" || data.category === "laptops") {
                   return <Cards
                     key={data.id}
+                    product={data.id}
                     title={data.title}
                     price={data.price}
                     img={data.images[0]}
@@ -61,12 +62,13 @@ const Home = () => {
           <Titles title='Salud y Belleza' />
           <div className="container__cards">
             {loading ?
-              "loading..."
+              <Loader />
               :
               data.products.map(data => {
                 if (data.category === "skincare" || data.category === "womens-bags") {
                   return <Cards
                     key={data.id}
+                    product={data.id}
                     title={data.title}
                     price={data.price}
                     img={data.images[0]}

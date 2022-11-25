@@ -1,3 +1,8 @@
+.link{
+    text-decoration: none;
+    color: var(--black);
+}
+
 .container__card {
     min-width: 235px;
     height: 330px;
