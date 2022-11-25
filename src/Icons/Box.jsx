@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const SvgComponent = ({ stroke }) => (
+const SvgComponent = ({ stroke, fill }) => (
     <svg
         width={29}
         height={29}
@@ -12,7 +12,7 @@ const SvgComponent = ({ stroke }) => (
     >
         <path
             d="m2.695 7.185 9 4 .61-1.37-9-4-.61 1.37zM12.75 21.5v-11h-1.5v11h1.5zm-.445-10.315 9-4-.61-1.37-9 4 .61 1.37z"
-            fill="#000"
+            fill={fill}
         />
         <path
             d="M3 17.11V6.89a.6.6 0 0 1 .356-.548l8.4-3.734a.6.6 0 0 1 .488 0l8.4 3.734A.6.6 0 0 1 21 6.89v10.22a.6.6 0 0 1-.356.548l-8.4 3.734a.6.6 0 0 1-.488 0l-8.4-3.734A.6.6 0 0 1 3 17.11z"

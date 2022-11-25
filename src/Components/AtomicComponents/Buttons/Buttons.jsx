@@ -1,13 +1,13 @@
 import React from 'react'
 import './Buttons.css'
 
-const Buttons = ({text}) => {
+const Buttons = ({ text, tipo = 'button__sale', tipoSpan='span__sale' }) => {
     return (
-        <button>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+        <button className={tipo}>
+            <span className={tipoSpan}></span>
+            <span className={tipoSpan}></span>
+            <span className={tipoSpan}></span>
+            <span className={tipoSpan}></span>
             {text}
         </button>
     )

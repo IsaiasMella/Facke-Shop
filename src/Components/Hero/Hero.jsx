@@ -13,7 +13,7 @@ const Hero = () => {
                     <img src={Logo} alt='FackeShop' />
                 </div>
                 <div className="container__button-hero">
-                    <Buttons text='¡lo quiero ya!' />
+                    <Buttons text='¡lo quiero ya!' tipo='' tipoSpan='' />
                 </div>
             </div>
 

@@ -1,7 +1,7 @@
 .container__article_detail {
     width: 100%;
     height: 100vh;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,9 +19,18 @@
     padding: 20px;
 }
 
-.container__images {
+.container__article {
     width: 60%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    overflow-y: auto;
+}
+
+.container__images{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,13 +74,62 @@
 }
 
 .container__sale{
-    width: 40%;
+    width: 35%;
     height: 100%;
-    border: 1px solid var(--black);
+    border: 1px solid #0000001a;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content:flex-start;
     align-items: flex-start;
     padding: 20px;
+}
+
+.sale__price{
+    font-size: 3rem;
+    padding: 25px 0;
+}
+
+.seccion_destacada{
+    font-size: 1.2rem;
+}
+
+.seccion_destacada>span{
+    color: var(--green);
+}
+
+.container__stok{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 15px 0;
+    line-height: 1.15rem;
+}
+
+.indicator_stok{
+    color: var(--grey);
+}
+
+.sale__button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 45px 0;
+}
+
+.servicios{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 10px 0;
+}
+
+.envio_gratis{
+    display: flex;
+    gap: 5px;
+}
+
+.compra_protegida{
+    display: flex;
+    gap: 5px;
 }
