@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import TotalCart from "../../Icons/TotalCart";
 import Logout from "../../Icons/Logout";
 import F from '../../Images/F.png'
 import "./NavBar.css";
 import User from "../../Icons/User";
+import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ dataCart }) => {
+  let comprobacion = dataCart.length > 0
+
   return (
     <div className="container__navbar">
       <nav className="navbar">
@@ -15,8 +18,15 @@ const NavBar = () => {
           <li className="nav-item">Accesorios</li>
           <li className="nav-item">Hardware</li>
           <li className="nav-item">Nosotros</li>
-          <div className="container__cart">
-            <TotalCart stroke={'#fff'} />
+          <div className={`container__cart ${comprobacion ? 'sale__cart' : ''}`}>  {/* la clase se llamaba 'sale__cart'*/}
+            {comprobacion ?
+              <Link to='/cart' >
+                <span className='indicator'><p>{dataCart.length}</p></span>
+                <TotalCart stroke={'#fff'} />
+              </Link>
+              :
+              <TotalCart stroke={'#fff'} />
+            }
           </div>
           <div className="container__user">
             <User stroke={'#fff'} />
@@ -25,7 +35,6 @@ const NavBar = () => {
             <Logout stroke='#fff' />
           </div>
         </ul>
-
       </nav>
     </div>
   );

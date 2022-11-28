@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 import AddCart from "../../../Icons/AddCart";
 import "./Cards.css";
 
-const Cards = ({ title, price, img, product }) => {
+const Cards = ({ data, addCart }) => {
+  let { title, price } = data
+  let img = data.images[0]
+  let product = data.id
+
   return (
-    <Link to={`/${title.replace(' ', '-')}/${product}`} className="link">
-      <div className="container__card">
+    <div className="container__card">
+      <Link to={`/${title.replace(' ', '-')}/${product}`} className="link">
         <div className="container__img">
           <img src={`${img}`} alt={`${title}`} />
         </div>
@@ -20,14 +24,14 @@ const Cards = ({ title, price, img, product }) => {
             </div>
           </div>
         </div>
-        <div className="container__card-pricing " >
-          <p className="price"><strong>{`$ ${price}`}</strong></p>
-          <div className="add_cart">
-            <AddCart stroke='var(--black)' />
-          </div>
+      </Link >
+      <div className="container__card-pricing " >
+        <p className="price"><strong>{`$ ${price}.00`}</strong></p>
+        <div className="add_cart" onClick={() => addCart(product)}>
+          <AddCart stroke='var(--black)' />
         </div>
       </div>
-    </Link>
+    </div >
   );
 };
 

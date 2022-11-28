@@ -1,4 +1,4 @@
-const TotalCart = ({ stroke }) => (
+const TotalCart = ({ stroke, nombreClase }) => (
   <svg
     width={29}
     height={29}

@@ -69,3 +69,45 @@
     transition-duration: .2s;
     transition-timing-function: ease-in-out;
 }
+
+a>.sale__cart>svg>path{
+    stroke: var(--violet);
+    transition: stroke .2s ease-in-out;
+}
+
+.sale__cart{
+    position: relative;
+}
+
+.indicator{
+    background: red;
+    height: 60%;
+    width: 60%;
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background .2s .2s ease-in-out;
+}
+
+.indicator>p{
+    opacity: 0;
+    color: #fff;
+    font-size: 0rem;
+    padding: 2px;
+    animation: cantArticulos .5s .3s ease-in-out forwards;
+}
+
+@keyframes cantArticulos {
+    0%{
+        opacity: 0;
+        font-size: 0rem;
+    }
+    100%{
+        opacity: 1;
+        font-size: .7rem;
+    }
+}

@@ -4,14 +4,22 @@ import Cards from "../../Components/AtomicComponents/Cards/Cards";
 import Intereses from "../../Components/AtomicComponents/Intereses/Intereses";
 import Titles from "../../Components/AtomicComponents/Titles/Titles";
 import Hero from "../../Components/Hero/Hero";
-import useFetch from "../../Hooks/useFetch";
 import Loader from "../../Icons/Loader/Loader";
 import Hot_Sale from '../../Images/FakeProducts/Hot_Sale.png'
+import { TYPES } from "../../Reducer/Action";
 import "./Home.css";
 
-const Home = () => {
-  const { data, loading } = useFetch("https://dummyjson.com/products")
-  const category = useFetch("https://dummyjson.com/products/categories")
+const Home = ({ data, loading, dispatch,dataCart }) => {
+
+  const addCart = (id) => {
+    dispatch({ type: TYPES.ADD_CART, payload: id })
+  }
+  const delFromCart = () => {
+
+  }
+  const clearCart = () => {
+
+  }
 
   return (
     <div>
@@ -38,14 +46,13 @@ const Home = () => {
             {loading ?
               <Loader />
               :
-              data.products.map(data => {
+              data.products.map((data,index) => {
                 if (data.category === "smartphones" || data.category === "laptops") {
                   return <Cards
-                    key={data.id}
-                    product={data.id}
-                    title={data.title}
-                    price={data.price}
-                    img={data.images[0]}
+                    key={index}
+                    data={data}
+                    addCart={addCart}
+                    dataCart={dataCart}
                   />
                 }
               }
@@ -68,10 +75,7 @@ const Home = () => {
                 if (data.category === "skincare" || data.category === "womens-bags") {
                   return <Cards
                     key={data.id}
-                    product={data.id}
-                    title={data.title}
-                    price={data.price}
-                    img={data.images[0]}
+                    data={data}
                   />
                 }
               }

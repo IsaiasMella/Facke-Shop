@@ -20,8 +20,6 @@ const ArticlePage = () => {
     setImgPrincipal(data?.images[0])
   }, [data]);
 
-  console.log(data)
-
   return (
     <div className="container__article_detail">
       <div className="article_detail">
