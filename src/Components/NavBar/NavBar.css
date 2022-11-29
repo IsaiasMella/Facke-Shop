@@ -25,8 +25,12 @@
     display: flex;
 }
 
-.navbar>img {
+.navbar>a {
     height: 80%;
+}
+
+.logo__navbar{
+    height: 100%;
     object-fit: contain;
     cursor: pointer;
 }
@@ -70,18 +74,20 @@
     transition-timing-function: ease-in-out;
 }
 
-a>.sale__cart>svg>path{
+.sale__cart>a>svg>path{
     stroke: var(--violet);
     transition: stroke .2s ease-in-out;
 }
 
 .sale__cart{
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .indicator{
     background: red;
-    height: 60%;
+    height: 50%;
     width: 60%;
     position: absolute;
     top: -2px;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import TotalCart from "../../Icons/TotalCart";
 import Logout from "../../Icons/Logout";
 import F from '../../Images/F.png'
@@ -12,12 +12,14 @@ const NavBar = ({ dataCart }) => {
   return (
     <div className="container__navbar">
       <nav className="navbar">
-        <img src={F} alt="logominimizado" />
+        <Link to='/'>
+          <img className="logo__navbar" src={F} alt="logominimizado" />
+        </Link>
         <ul className="container__nav-items">
-          <li className="nav-item">Indumentaria</li>
+          {/* <li className="nav-item">Indumentaria</li>
           <li className="nav-item">Accesorios</li>
           <li className="nav-item">Hardware</li>
-          <li className="nav-item">Nosotros</li>
+          <li className="nav-item">Nosotros</li> */}
           <div className={`container__cart ${comprobacion ? 'sale__cart' : ''}`}>  {/* la clase se llamaba 'sale__cart'*/}
             {comprobacion ?
               <Link to='/cart' >

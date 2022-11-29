@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AddCart from "../../../Icons/AddCart";
+import RemoveCart from "../../../Icons/RemoveCart";
 import "./Cards.css";
 
-const Cards = ({ data, addCart }) => {
+const Cards = ({ data, addCart, delFromCart }) => {
   let { title, price } = data
   let img = data.images[0]
   let product = data.id
@@ -29,6 +30,9 @@ const Cards = ({ data, addCart }) => {
         <p className="price"><strong>{`$ ${price}.00`}</strong></p>
         <div className="add_cart" onClick={() => addCart(product)}>
           <AddCart stroke='var(--black)' />
+        </div>
+        <div className="add_cart" onClick={() => delFromCart(product)}>
+          <RemoveCart stroke='var(--black)' />
         </div>
       </div>
     </div >

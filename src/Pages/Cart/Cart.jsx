@@ -10,7 +10,7 @@ const Cart = ({ dataCart }) => {
     let suma = 0
 
     dataCart.map(product => {
-      suma += product.price
+      suma += product.price * product.quantity
       setTotalCart(suma)
     })
 

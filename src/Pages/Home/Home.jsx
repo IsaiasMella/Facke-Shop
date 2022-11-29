@@ -9,16 +9,21 @@ import Hot_Sale from '../../Images/FakeProducts/Hot_Sale.png'
 import { TYPES } from "../../Reducer/Action";
 import "./Home.css";
 
-const Home = ({ data, loading, dispatch,dataCart }) => {
+const Home = ({ data, loading, dispatch, dataCart }) => {
 
   const addCart = (id) => {
     dispatch({ type: TYPES.ADD_CART, payload: id })
   }
-  const delFromCart = () => {
-
+  const delFromCart = (id, all = false) => {
+    if (all) {
+      dispatch({ type: TYPES.REMOVE_ALL_FROM_CART, payload: id })
+    } else {
+      console.log(id)
+      dispatch({ type: TYPES.REMOVE_ONE_FROM_CART, payload: id })
+    }
   }
   const clearCart = () => {
-
+    dispatch({ type: TYPES.CLEAR_CART })
   }
 
   return (
@@ -46,13 +51,14 @@ const Home = ({ data, loading, dispatch,dataCart }) => {
             {loading ?
               <Loader />
               :
-              data.products.map((data,index) => {
+              data.products.map((data, index) => {
                 if (data.category === "smartphones" || data.category === "laptops") {
                   return <Cards
                     key={index}
                     data={data}
-                    addCart={addCart}
                     dataCart={dataCart}
+                    addCart={addCart}
+                    delFromCart={delFromCart}
                   />
                 }
               }

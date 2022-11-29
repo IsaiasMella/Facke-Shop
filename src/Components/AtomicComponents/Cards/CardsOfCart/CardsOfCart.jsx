@@ -1,12 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Shield from '../../../../Icons/Shield'
 import Box from '../../../../Icons/Box'
 import './CardsOfCart.css'
 
 const CardsOfCart = ({ producto }) => {
-    console.log(producto)
-    let {title,price} = producto
+    let { title, price, quantity } = producto
     let img = producto.images[0]
+
+    const [subTotal, setSubTotal] = useState();
+
+    useEffect(() => {
+        console.log(price)
+        console.log(quantity)
+        setSubTotal(price * quantity)
+    }, [quantity]);
+
+    // useEffect(() => {
+    //     let suma = 0
+    
+    //     dataCart.map(product => {
+    //       suma += product.price * product.quantity
+    //       setTotalCart(suma)
+    //     })
 
     return (
         <div className='container__card_of_cart'>
@@ -25,8 +40,12 @@ const CardsOfCart = ({ producto }) => {
                         </div>
                     </div>
                 </div>
+                <div className="container__quantity">
+                    <small>Unidades</small>
+                    <p>X {quantity}</p>
+                </div>
                 <div className='price_of_cart'>
-                    <p>$ {price}</p>
+                    <p>$ {subTotal }</p>
                 </div>
             </div>
             <hr />
