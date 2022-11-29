@@ -1,0 +1,30 @@
+.container__cart_page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart_page {
+    width: 80%;
+    height: 80vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+hr{
+    width: 90%;
+    background-color: var(--grey);
+    height: 1px;
+    border: none;
+}
+
+.cart__detail{
+    width: 90%;
+}

@@ -1,11 +1,11 @@
 import * as React from "react"
 
-const Shield = ({ stroke }) => (
+const Shield = ({ stroke, height = 23, width = 23 }) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         className="shield"
-        width={29}
-        height={29}
+        width={width}
+        height={height}
         viewBox="0 0 24 24"
         strokeWidth={1.52}
         stroke={stroke}

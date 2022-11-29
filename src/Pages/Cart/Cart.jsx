@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import CardsOfCart from '../../Components/AtomicComponents/Cards/CardsOfCart/CardsOfCart';
 import TotalCart from '../../Icons/TotalCart'
+import './Cart.css'
 
 const Cart = ({ dataCart }) => {
   const [totalCart, setTotalCart] = useState(0);
@@ -8,7 +10,7 @@ const Cart = ({ dataCart }) => {
     let suma = 0
 
     dataCart.map(product => {
-      suma +=  product.price
+      suma += product.price
       setTotalCart(suma)
     })
 
@@ -26,15 +28,15 @@ const Cart = ({ dataCart }) => {
         <hr />
         <div className="cart__detail">
           {
-            dataCart.map(producto => {
+            dataCart.map((producto, index) => {
               return (
-                <p>una targeta {producto.title}</p>
+                <CardsOfCart key={index} producto={producto} />
               )
             })
           }
         </div>
         <div className='container__total_pricing'>
-          <p>{totalCart}</p>
+          <p>TOTAL: ${totalCart}</p>
         </div>
       </div>
     </div>
