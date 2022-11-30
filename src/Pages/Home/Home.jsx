@@ -53,29 +53,6 @@ const Home = ({ data, loading, dataCart, addCart, delFromCart }) => {
         addCart={addCart}
         delFromCart={delFromCart}
       />
-
-      {/*Seccion Belleza y salud*/}
-      {/* <div className="container__category">
-        <ButtonArrow tipo='left' />
-        <div className="category">
-          <Titles title='Salud y Belleza' />
-          <div className="container__cards">
-            {loading ?
-              <Loader />
-              :
-              data.products.map(data => {
-                if (data.category === "skincare" || data.category === "womens-bags") {
-                  return <Cards
-                    key={data.id}
-                    data={data}
-                  />
-                }
-              }
-              )}
-          </div>
-        </div>
-        <ButtonArrow tipo='rigth' />
-      </div> */}
     </div>
   );
 };
