@@ -1,30 +1,12 @@
 import React from "react";
-import ButtonArrow from "../../Components/AtomicComponents/Buttons/ButtonsCarrousel/ButtonArrow";
-import Cards from "../../Components/AtomicComponents/Cards/Cards";
+import Carrusel from "../../Components/AtomicComponents/Carrusel/Carrusel";
 import Intereses from "../../Components/AtomicComponents/Intereses/Intereses";
 import Titles from "../../Components/AtomicComponents/Titles/Titles";
 import Hero from "../../Components/Hero/Hero";
-import Loader from "../../Icons/Loader/Loader";
 import Hot_Sale from '../../Images/FakeProducts/Hot_Sale.png'
-import { TYPES } from "../../Reducer/Action";
 import "./Home.css";
 
-const Home = ({ data, loading, dispatch, dataCart }) => {
-
-  const addCart = (id) => {
-    dispatch({ type: TYPES.ADD_CART, payload: id })
-  }
-  const delFromCart = (id, all = false) => {
-    if (all) {
-      dispatch({ type: TYPES.REMOVE_ALL_FROM_CART, payload: id })
-    } else {
-      console.log(id)
-      dispatch({ type: TYPES.REMOVE_ONE_FROM_CART, payload: id })
-    }
-  }
-  const clearCart = () => {
-    dispatch({ type: TYPES.CLEAR_CART })
-  }
+const Home = ({ data, loading, dataCart, addCart, delFromCart }) => {
 
   return (
     <div>
@@ -43,33 +25,37 @@ const Home = ({ data, loading, dispatch, dataCart }) => {
       </div>
 
       {/*Seccion Tecnologia*/}
-      <div className="container__category">
-        <ButtonArrow tipo='left' />
-        <div className="category">
-          <Titles title='Tecnología' />
-          <div className="container__cards">
-            {loading ?
-              <Loader />
-              :
-              data.products.map((data, index) => {
-                if (data.category === "smartphones" || data.category === "laptops") {
-                  return <Cards
-                    key={index}
-                    data={data}
-                    dataCart={dataCart}
-                    addCart={addCart}
-                    delFromCart={delFromCart}
-                  />
-                }
-              }
-              )}
-          </div>
-        </div>
-        <ButtonArrow tipo='rigth' />
-      </div>
+      <Carrusel
+        title='Tecnología'
+        category={
+          {
+            category1: 'smartphones',
+            category2: 'laptops'
+          }
+        }
+        loading={loading}
+        data={data}
+        dataCart={dataCart}
+        addCart={addCart}
+        delFromCart={delFromCart}
+      />
+      <Carrusel
+        title='Belleza y Salud'
+        category={
+          {
+            category1: 'skincare',
+            category2: 'womens-bags'
+          }
+        }
+        loading={loading}
+        data={data}
+        dataCart={dataCart}
+        addCart={addCart}
+        delFromCart={delFromCart}
+      />
 
       {/*Seccion Belleza y salud*/}
-      <div className="container__category">
+      {/* <div className="container__category">
         <ButtonArrow tipo='left' />
         <div className="category">
           <Titles title='Salud y Belleza' />
@@ -89,7 +75,7 @@ const Home = ({ data, loading, dispatch, dataCart }) => {
           </div>
         </div>
         <ButtonArrow tipo='rigth' />
-      </div>
+      </div> */}
     </div>
   );
 };

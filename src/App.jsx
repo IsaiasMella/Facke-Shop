@@ -7,6 +7,7 @@ import useFetch from './Hooks/useFetch'
 import ArticlePage from './Pages/ArticlePage/ArticlePage'
 import Cart from './Pages/Cart/Cart'
 import Home from './Pages/Home/Home'
+import { TYPES } from './Reducer/Action'
 import { initialState, shoppingReducer } from './Reducer/ShoppingReducer'
 
 function App() {
@@ -20,11 +21,27 @@ function App() {
   const [state, dispatch] = useReducer(shoppingReducer, initialState)
   const { dataCart } = state
 
+  //Handlers del carrito
+  const addCart = (id) => {
+    dispatch({ type: TYPES.ADD_CART, payload: id })
+  }
+  const delFromCart = (id, all = false) => {
+    if (all) {
+      dispatch({ type: TYPES.REMOVE_ALL_FROM_CART, payload: id })
+    } else {
+      console.log(id)
+      dispatch({ type: TYPES.REMOVE_ONE_FROM_CART, payload: id })
+    }
+  }
+  const clearCart = () => {
+    dispatch({ type: TYPES.CLEAR_CART })
+  }
+
   return (
     <div className="App">
       <NavBar dataCart={dataCart} />
       <Routes>
-        <Route path='/' element={<Home data={data} loading={loading} dispatch={dispatch} dataCart={dataCart} />} />
+        <Route path='/' element={<Home data={data} loading={loading} addCart={addCart} dataCart={dataCart} delFromCart={delFromCart}/>} />
         <Route path='/:productName/:id' element={<ArticlePage />} />
         <Route path='/cart' element={<Cart dataCart={dataCart}/>} />
       </Routes>

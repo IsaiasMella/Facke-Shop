@@ -27,7 +27,7 @@ const ArticlePage = () => {
           {/* contenedor de TODAS las imagenes */}
           <div className="container__images">
             <div className="container__small_imagenes">
-              {loading ? <Loader /> :
+              {loading ? '' :
                 data.images.map(img =>
                   <div onMouseOver={() => setImgPrincipal(img)} key={img} className="container__individual_image">
                     <img src={img} alt={productName} />
@@ -43,10 +43,15 @@ const ArticlePage = () => {
 
           {/* CONTENEDOR DE LA DESCRIPCION */}
           <div className="container__description">
-            <Titles title='Descripcion' />
-            <p className="description">
-              {loading ? <Loader /> : data.description}
-            </p>
+            {
+              loading ? '' :
+                <>
+                  <Titles title='Descripcion' />
+                  <p className="description">
+                    {data.description
+                    }</p>
+                </>
+            }
           </div>
         </div>
 
@@ -79,8 +84,6 @@ const ArticlePage = () => {
             <Buttons text='Añadir al carrito' />
           </div>
 
-          
-          
         </div>
       </div>
     </div>

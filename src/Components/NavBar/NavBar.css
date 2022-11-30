@@ -104,7 +104,7 @@
     color: #fff;
     font-size: 0rem;
     padding: 2px;
-    animation: cantArticulos .5s .3s ease-in-out forwards;
+    animation: cantArticulos .2s .1s ease-in-out forwards;
 }
 
 @keyframes cantArticulos {
