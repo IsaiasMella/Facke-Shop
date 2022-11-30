@@ -1,6 +1,6 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation,FreeMode } from "swiper";
+import { Navigation, FreeMode } from "swiper";
 import Loader from '../../../Icons/Loader/Loader'
 import ButtonArrow from '../Buttons/ButtonsCarrousel/ButtonArrow'
 import Cards from '../Cards/Cards'
@@ -20,11 +20,32 @@ const Carrusel = ({ loading, data, dataCart, addCart, delFromCart, title, catego
                         freeMode={true}
                         grabCursor={true}
                         modules={[FreeMode, Navigation]}
-                        slidesPerView={4}
+                        // slidesPerView={4}
+                        // spaceBetween={30}
                         slidesPerGroup={1}
-                        spaceBetween={30}
                         navigation={true}
-                        >
+                        breakpoints={{
+                            0: {
+                                slidesPerView:1
+                            },
+                            480: {
+                                slidesPerView:2,
+                                spaceBetween: 30
+                            },
+                            768: {
+                                slidesPerView:3,
+                                spaceBetween:30
+                            },
+                            1024: {
+                                slidesPerView:4,
+                                spaceBetween:30
+                            },
+                            1280: {
+                                slidesPerView:5,
+                                spaceBetween:30
+                            },
+                        }}
+                    >
                         {loading ?
                             <Loader />
                             :
