@@ -35,14 +35,13 @@ const Cards = ({ data, addCart, delFromCart, dataCart }) => {
         {/* Botton remover articulo */}
         {
           dataCart.map(item => {
-            item.id === product ?
-              <div className="add_cart" onClick={() => delFromCart(product)}>
+            if (item.id === product) {
+              return (<div className="add_cart" onClick={() => delFromCart(product)}>
                 {console.log(item.id)}
                 {console.log(product)}
                 <RemoveCart stroke='var(--black)' />
-              </div>
-              :
-              ''
+              </div>)
+            }
           })
         }
       </div>

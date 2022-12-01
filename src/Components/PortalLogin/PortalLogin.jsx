@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import FackeShop from '../../Images/FackeShop.png'
 import { RemoveScroll } from 'react-remove-scroll'
 import './PortalLogin.css'
+import { Link } from 'react-router-dom'
 
 const PortalLogin = ({ handlePortal }) => {
   const handlePropagation = (e) => e.stopPropagation()
@@ -14,10 +15,10 @@ const PortalLogin = ({ handlePortal }) => {
           <img src={FackeShop} alt="FackeShop" />
           <form action="" className="ingreso">
             <input className='user__login' type="text" placeholder='Mail' required />
-            <input className='password__login' type="password" placeholder='Password' required />
+            <input className='password__login' type="password" placeholder='Contraseña' required />
             <button className='button__login'>Ingresar</button>
           </form>
-          <a href="#" className='register'>Registrarse</a>
+          <Link to="/register" className='register' onClick={()=>handlePortal()} >Registrarse</Link>
         </div>
       </div>
     </RemoveScroll>

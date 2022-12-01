@@ -8,6 +8,7 @@ import useFetch from './Hooks/useFetch'
 import ArticlePage from './Pages/ArticlePage/ArticlePage'
 import Cart from './Pages/Cart/Cart'
 import Home from './Pages/Home/Home'
+import Register from './Pages/Registration/Register'
 import { TYPES } from './Reducer/Action'
 import { initialState, shoppingReducer } from './Reducer/ShoppingReducer'
 
@@ -52,6 +53,7 @@ function App() {
         <Route path='/' element={<Home data={data} loading={loading} addCart={addCart} dataCart={dataCart} delFromCart={delFromCart} />} />
         <Route path='/:productName/:id' element={<ArticlePage addCart={addCart} />} />
         <Route path='/cart' element={<Cart dataCart={dataCart} />} />
+        <Route path='/register' element={<Register />} />
       </Routes>
       <Footer />
     </div>

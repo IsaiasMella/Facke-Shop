@@ -1,9 +1,9 @@
 import * as React from "react"
 
-const User = ({ stroke }) => (
+const User = ({ stroke, widthUser = 29, heightUser = 29 }) => (
     <svg
-        width={29}
-        height={29}
+        width={widthUser}
+        height={heightUser}
         strokeWidth={1.52}
         viewBox="0 0 24 24"
         fill="none"
