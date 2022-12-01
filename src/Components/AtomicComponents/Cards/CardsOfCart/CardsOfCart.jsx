@@ -10,18 +10,8 @@ const CardsOfCart = ({ producto }) => {
     const [subTotal, setSubTotal] = useState();
 
     useEffect(() => {
-        console.log(price)
-        console.log(quantity)
         setSubTotal(price * quantity)
     }, [quantity]);
-
-    // useEffect(() => {
-    //     let suma = 0
-    
-    //     dataCart.map(product => {
-    //       suma += product.price * product.quantity
-    //       setTotalCart(suma)
-    //     })
 
     return (
         <div className='container__card_of_cart'>
@@ -45,7 +35,7 @@ const CardsOfCart = ({ producto }) => {
                     <p>X {quantity}</p>
                 </div>
                 <div className='price_of_cart'>
-                    <p>$ {subTotal }</p>
+                    <p>$ {subTotal}</p>
                 </div>
             </div>
             <hr />

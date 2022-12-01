@@ -4,7 +4,7 @@ import AddCart from "../../../Icons/AddCart";
 import RemoveCart from "../../../Icons/RemoveCart";
 import "./Cards.css";
 
-const Cards = ({ data, addCart, delFromCart }) => {
+const Cards = ({ data, addCart, delFromCart, dataCart }) => {
   let { title, price } = data
   let img = data.images[0]
   let product = data.id
@@ -31,9 +31,20 @@ const Cards = ({ data, addCart, delFromCart }) => {
         <div className="add_cart" onClick={() => addCart(product)}>
           <AddCart stroke='var(--black)' />
         </div>
-        <div className="add_cart" onClick={() => delFromCart(product)}>
-          <RemoveCart stroke='var(--black)' />
-        </div>
+
+        {/* Botton remover articulo */}
+        {
+          dataCart.map(item => {
+            item.id === product ?
+              <div className="add_cart" onClick={() => delFromCart(product)}>
+                {console.log(item.id)}
+                {console.log(product)}
+                <RemoveCart stroke='var(--black)' />
+              </div>
+              :
+              ''
+          })
+        }
       </div>
     </div >
   );

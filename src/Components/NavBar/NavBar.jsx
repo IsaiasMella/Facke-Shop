@@ -5,8 +5,9 @@ import F from '../../Images/F.png'
 import "./NavBar.css";
 import User from "../../Icons/User";
 import { Link } from "react-router-dom";
+import PortalLogin from "../PortalLogin/PortalLogin";
 
-const NavBar = ({ dataCart }) => {
+const NavBar = ({ dataCart, handlePortal }) => {
   let comprobacion = dataCart.length > 0
 
   return (
@@ -16,10 +17,6 @@ const NavBar = ({ dataCart }) => {
           <img className="logo__navbar" src={F} alt="logominimizado" />
         </Link>
         <ul className="container__nav-items">
-          {/* <li className="nav-item">Indumentaria</li>
-          <li className="nav-item">Accesorios</li>
-          <li className="nav-item">Hardware</li>
-          <li className="nav-item">Nosotros</li> */}
           <div className={`container__cart ${comprobacion ? 'sale__cart' : ''}`}>  {/* la clase se llamaba 'sale__cart'*/}
             {comprobacion ?
               <Link to='/cart' >
@@ -30,7 +27,7 @@ const NavBar = ({ dataCart }) => {
               <TotalCart stroke={'#fff'} />
             }
           </div>
-          <div className="container__user">
+          <div className="container__user" onClick={()=>handlePortal()} >
             <User stroke={'#fff'} />
           </div>
           <div className="container__logout">

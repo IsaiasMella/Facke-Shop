@@ -9,10 +9,10 @@ import Box from "../../Icons/Box";
 import './ArticlePage.css'
 import Shield from "../../Icons/Shield";
 
-const ArticlePage = () => {
+const ArticlePage = ({ addCart }) => {
   window.scrollTo(0, 0)
 
-  let { id, productName } = useParams()
+  const { id, productName } = useParams()
   const { data, loading } = useFetch(`https://dummyjson.com/products/${id}`)
   const [imgPrincipal, setImgPrincipal] = useState('');
 
@@ -80,8 +80,8 @@ const ArticlePage = () => {
             </div>
           </div>
 
-          <div className="sale__button">
-            <Buttons text='Añadir al carrito' />
+          <div className="sale__button" >
+            <Buttons text='Añadir al carrito' action={addCart} id={data?.id} />
           </div>
 
         </div>

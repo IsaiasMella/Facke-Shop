@@ -2,7 +2,6 @@ import React from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, FreeMode } from "swiper";
 import Loader from '../../../Icons/Loader/Loader'
-import ButtonArrow from '../Buttons/ButtonsCarrousel/ButtonArrow'
 import Cards from '../Cards/Cards'
 import Titles from '../Titles/Titles'
 import './Carrusel.css'

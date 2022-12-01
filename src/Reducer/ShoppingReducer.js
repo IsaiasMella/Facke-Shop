@@ -46,15 +46,6 @@ export function shoppingReducer(state, action) {
                     dataCart: state.dataCart.filter(item => item.id !== action.payload)
                 }
         }
-        case TYPES.REMOVE_ALL_FROM_CART: {
-
-        }
-        case TYPES.CLEAR_CART: {
-            console.log(state.dataCart)
-            // return { 
-            // }
-        }
-
         default:
             return state
     }
