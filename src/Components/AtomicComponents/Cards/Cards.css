@@ -77,6 +77,13 @@
     margin-top: 8px;
 }
 
+.container__carts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
 .add_cart{
     transition: .2s ease-in-out;
     display: flex;

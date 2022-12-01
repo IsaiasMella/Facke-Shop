@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Shield from '../../../../Icons/Shield'
 import Box from '../../../../Icons/Box'
 import './CardsOfCart.css'
+import RemoveCart from '../../../../Icons/RemoveCart'
+import AddCart from '../../../../Icons/AddCart'
 
-const CardsOfCart = ({ producto }) => {
+const CardsOfCart = ({ producto, addCart, delFromCart, dataCart }) => {
     let { title, price, quantity } = producto
     let img = producto.images[0]
 
@@ -29,6 +31,24 @@ const CardsOfCart = ({ producto }) => {
                             <small>envio gratis</small>
                         </div>
                     </div>
+                </div>
+                <div className="container__carts">
+                    <div className="add_cart" onClick={() => addCart(producto.id)}>
+                        <AddCart stroke='var(--black)' />
+                    </div>
+
+                    {/* Botton remover articulo */}
+                    {
+                        dataCart.map(item => {
+                            if (item.id === producto.id) {
+                                return (
+                                    <div className="add_cart" onClick={() => delFromCart(producto.id)}>
+                                        <RemoveCart stroke='var(--black)' />
+                                    </div>
+                                )
+                            }
+                        })
+                    }
                 </div>
                 <div className="container__quantity">
                     <small>Unidades</small>

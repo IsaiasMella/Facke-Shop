@@ -52,7 +52,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home data={data} loading={loading} addCart={addCart} dataCart={dataCart} delFromCart={delFromCart} />} />
         <Route path='/:productName/:id' element={<ArticlePage addCart={addCart} />} />
-        <Route path='/cart' element={<Cart dataCart={dataCart} />} />
+        <Route path='/cart' element={<Cart dataCart={dataCart} addCart={addCart} delFromCart={delFromCart}/>} />
         <Route path='/register' element={<Register />} />
       </Routes>
       <Footer />

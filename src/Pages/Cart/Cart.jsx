@@ -3,7 +3,7 @@ import CardsOfCart from '../../Components/AtomicComponents/Cards/CardsOfCart/Car
 import TotalCart from '../../Icons/TotalCart'
 import './Cart.css'
 
-const Cart = ({ dataCart }) => {
+const Cart = ({ dataCart, addCart, delFromCart }) => {
   const [totalCart, setTotalCart] = useState(0);
 
   useEffect(() => {
@@ -14,7 +14,11 @@ const Cart = ({ dataCart }) => {
       setTotalCart(suma)
     })
 
-  }, [dataCart.length]);
+    if (dataCart.length === 0) {
+      setTotalCart(0)
+    }
+
+  }, [dataCart]);
 
   return (
     <div className='container__cart_page'>
@@ -30,13 +34,19 @@ const Cart = ({ dataCart }) => {
           {
             dataCart.map((producto, index) => {
               return (
-                <CardsOfCart key={index} producto={producto} />
+                <CardsOfCart
+                  key={index}
+                  producto={producto}
+                  addCart={addCart}
+                  delFromCart={delFromCart}
+                  dataCart={dataCart}
+                />
               )
             })
           }
         </div>
         <div className='container__total_pricing'>
-          <p>TOTAL: ${totalCart}</p>
+          {totalCart > 0 ? <p>TOTAL: ${totalCart}</p> : ''}
         </div>
       </div>
     </div>

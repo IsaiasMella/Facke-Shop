@@ -28,22 +28,22 @@ const Cards = ({ data, addCart, delFromCart, dataCart }) => {
       </Link >
       <div className="container__card-pricing " >
         <p className="price"><strong>{`$ ${price}.00`}</strong></p>
-        <div className="add_cart" onClick={() => addCart(product)}>
-          <AddCart stroke='var(--black)' />
-        </div>
+        <div className="container__carts">
+          <div className="add_cart" onClick={() => addCart(product)}>
+            <AddCart stroke='var(--black)' />
+          </div>
 
-        {/* Botton remover articulo */}
-        {
-          dataCart.map(item => {
-            if (item.id === product) {
-              return (<div className="add_cart" onClick={() => delFromCart(product)}>
-                {console.log(item.id)}
-                {console.log(product)}
-                <RemoveCart stroke='var(--black)' />
-              </div>)
-            }
-          })
-        }
+          {/* Botton remover articulo */}
+          {
+            dataCart.map(item => {
+              if (item.id === product) {
+                return (<div className="add_cart" onClick={() => delFromCart(product)}>
+                  <RemoveCart stroke='var(--black)' />
+                </div>)
+              }
+            })
+          }
+        </div>
       </div>
     </div >
   );
