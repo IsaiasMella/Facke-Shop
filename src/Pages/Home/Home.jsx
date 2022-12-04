@@ -14,7 +14,7 @@ const Home = ({ data, loading, dataCart, addCart, delFromCart }) => {
       {/* {console.log(category)} */}
       {/*Seccion Intereses*/}
       <div className="container__intereses-populares">
-        <Titles title='Esto te puede Interesar' />
+        {/* <Titles title='Esto te puede Interesar' /> */}
         {/* <div className="container__intereses">
           <Intereses tipo='Ofertas' img={Hot_Sale} />
           <Intereses tipo='Smartphones' img='https://es.directunlocks.com/devices/compressed/iphone14better.png?v=4' />
