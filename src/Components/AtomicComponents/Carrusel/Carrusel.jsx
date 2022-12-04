@@ -37,10 +37,6 @@ const Carrusel = ({ loading, data, dataCart, addCart, delFromCart, title, catego
                                 slidesPerView:4,
                                 spaceBetween:30
                             },
-                            // 1280: {
-                            //     slidesPerView:5,
-                            //     spaceBetween:30
-                            // },
                         }}
                     >
                         {loading ?

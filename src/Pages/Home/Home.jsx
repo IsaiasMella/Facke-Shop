@@ -15,13 +15,13 @@ const Home = ({ data, loading, dataCart, addCart, delFromCart }) => {
       {/*Seccion Intereses*/}
       <div className="container__intereses-populares">
         <Titles title='Esto te puede Interesar' />
-        <div className="container__intereses">
+        {/* <div className="container__intereses">
           <Intereses tipo='Ofertas' img={Hot_Sale} />
           <Intereses tipo='Smartphones' img='https://es.directunlocks.com/devices/compressed/iphone14better.png?v=4' />
           <Intereses tipo='Notebooks' img='https://www.venex.com.ar/products_images/1650479563_1640352500_lenovo_v15_g2_itl_ct1_04.png' />
           <Intereses tipo='Hogar' img='https://arizahome.com/wp-content/uploads/2021/08/Mueble-Sofa-Premier.webp' />
           <Intereses tipo='Perfumes' img='https://sumafar.com.ar/wp-content/uploads/2020/08/ROCK-SHAKIRA.png' />
-        </div>
+        </div> */}
       </div>
 
       {/*Seccion Tecnologia*/}

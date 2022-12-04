@@ -5,6 +5,7 @@ const useFetch = (url, method = 'GET') => {
     const [data, setData] = useState();
 
     useEffect(() => {
+
         fetch(url)
             .then(res => res.json())
             .then(res => {
@@ -12,6 +13,7 @@ const useFetch = (url, method = 'GET') => {
                 setLoading(false)
             })
             .catch(err => console.error(err))
+            
     }, [url]);
 
     return { loading, data }

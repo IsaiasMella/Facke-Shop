@@ -19,9 +19,9 @@ const Cards = ({ data, addCart, delFromCart, dataCart }) => {
           <div className="card__title">
             <h4>{`${title}`}</h4>
             <div className="container__stock">
-              <small>Stock</small>
-              <p className="unit">{Math.floor(Math.random() * 10) + 1}</p>
-              <small>Unidades</small>
+              {/* <small>Stock</small>
+              <p className="unit">{Math.floor(Math.random() * 10) + 1}</p> */}
+              {/* <small>Unidades</small> */}
             </div>
           </div>
         </div>
@@ -29,10 +29,6 @@ const Cards = ({ data, addCart, delFromCart, dataCart }) => {
       <div className="container__card-pricing " >
         <p className="price"><strong>{`$ ${price}.00`}</strong></p>
         <div className="container__carts">
-          <div className="add_cart" onClick={() => addCart(product)}>
-            <AddCart stroke='var(--black)' />
-          </div>
-
           {/* Botton remover articulo */}
           {
             dataCart.map(item => {
@@ -43,6 +39,10 @@ const Cards = ({ data, addCart, delFromCart, dataCart }) => {
               }
             })
           }
+          <div className="add_cart" onClick={() => addCart(product)}>
+            <AddCart stroke='var(--black)' />
+          </div>
+
         </div>
       </div>
     </div >
