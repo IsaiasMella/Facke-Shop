@@ -9,6 +9,7 @@ import ArticlePage from './Pages/ArticlePage/ArticlePage'
 import Cart from './Pages/Cart/Cart'
 import Home from './Pages/Home/Home'
 import Register from './Pages/Registration/Register'
+import UserPage from './Pages/UserPage/UserPage'
 import { TYPES } from './Reducer/Action'
 import { initialState, shoppingReducer } from './Reducer/ShoppingReducer'
 
@@ -45,16 +46,26 @@ function App() {
     setPortalOpen(!portalOpen)
   }
 
+  //estado con info del usuario
+  const [userName, setUserName] = useState();
+  const handlerUser = (user) => {
+    setUserName(user)
+  }
+
   return (
     <div className="App">
-      {portalOpen && <PortalLogin handlePortal={handlePortal} />}
-      <NavBar dataCart={dataCart} handlePortal={handlePortal} />
+      {portalOpen && <PortalLogin handlePortal={handlePortal} handlerUser={handlerUser} />}
+      <NavBar dataCart={dataCart} handlePortal={handlePortal} userName={userName} />
       <Routes>
         <Route path='/' element={<Home data={data} loading={loading} addCart={addCart} dataCart={dataCart} delFromCart={delFromCart} />} />
         <Route path='/:productName/:id' element={<ArticlePage addCart={addCart} />} />
-        <Route path='/cart' element={<Cart dataCart={dataCart} addCart={addCart} delFromCart={delFromCart}/>} />
+        <Route path='/cart' element={<Cart dataCart={dataCart} addCart={addCart} delFromCart={delFromCart} />} />
         <Route path='/register' element={<Register />} />
+        {console.log(userName)}
+        <Route path='/user' element={<UserPage userName={userName} />} />
+
       </Routes>
+      {/* <UserPage/> */}
       <Footer />
     </div>
   )

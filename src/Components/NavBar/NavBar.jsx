@@ -7,7 +7,7 @@ import User from "../../Icons/User";
 import { Link } from "react-router-dom";
 import PortalLogin from "../PortalLogin/PortalLogin";
 
-const NavBar = ({ dataCart, handlePortal }) => {
+const NavBar = ({ dataCart, handlePortal, userName }) => {
   let comprobacion = dataCart.length > 0
 
   return (
@@ -27,9 +27,16 @@ const NavBar = ({ dataCart, handlePortal }) => {
               <TotalCart stroke={'#fff'} />
             }
           </div>
-          <div className="container__user" onClick={()=>handlePortal()} >
-            <User stroke={'#fff'} />
-          </div>
+          {
+            userName ?
+              <Link to='/user' >
+                <User stroke={'#fff'} />
+              </Link>
+              :
+              <div className="container__user" onClick={() => handlePortal()} >
+                <User stroke={'#fff'} />
+              </div>
+          }
           <div className="container__logout">
             <Logout stroke='#fff' />
           </div>
