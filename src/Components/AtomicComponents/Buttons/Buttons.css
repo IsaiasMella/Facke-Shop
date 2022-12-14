@@ -12,6 +12,10 @@ button {
     transition: 0.2s;
     cursor: pointer;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
 
 button:hover {
@@ -27,7 +31,7 @@ button span:nth-child(1) {
     width: 100%;
     height: 3px;
     background: linear-gradient(90deg, transparent, #ae00ff);
-    animation: topButton  2s  1.05s   ease-in infinite backwards;
+    animation: topButton 2s 1.05s ease-in infinite backwards;
 }
 
 /*SPAN Bottom*/
@@ -37,7 +41,7 @@ button span:nth-child(2) {
     width: 3px;
     height: 100%;
     background: linear-gradient(180deg, transparent, #ae00ff);
-    animation: rigthButton  2s  1.35s ease-in infinite backwards;
+    animation: rigthButton 2s 1.35s ease-in infinite backwards;
 }
 
 /*SPAN Rigth*/
@@ -47,8 +51,8 @@ button span:nth-child(3) {
     width: 100%;
     height: 3px;
     background: linear-gradient(90deg, #ae00ff, transparent);
-    
-    animation: bottomButtom  2s  1.52s ease-in infinite backwards;
+
+    animation: bottomButtom 2s 1.52s ease-in infinite backwards;
 }
 
 /*SPAN Left*/
@@ -58,20 +62,23 @@ button span:nth-child(4) {
     width: 3px;
     height: 100%;
     background: linear-gradient(360deg, transparent, #ae00ff);
-    animation: leftButtom  2s  1.7s ease-in infinite backwards;
+    animation: leftButtom 2s 1.7s ease-in infinite backwards;
 }
 
 
 button:hover {
     background: #ae00ff;
-    box-shadow: 0 0 5px #bd33fd, 0 0 20px #bd33fd, 
-                0 0 35px #bd33fd, 0 0 100px #bd33fd;
+    box-shadow: 0 0 5px #bd33fd, 0 0 20px #bd33fd,
+        0 0 35px #bd33fd, 0 0 100px #bd33fd;
     color: #fff;
     border: 1px solid #fff;
     border-radius: 8px;
     transition: 0.2s;
 }
 
+button:hover .in-button {
+    stroke: #fff;
+}
 
 @keyframes topButton {
     0% {
@@ -130,100 +137,62 @@ button:hover {
     }
 }
 
-/*BUTTON SALE*/
-
-/* .span__sale{
-    display: none !important;
+.not_active{
+    display: none;
 }
 
-.button__sale,
-.button__sale::after {
- background: #ae00ff;
-    box-shadow: 0 0 5px #bd33fd, 0 0 20px #bd33fd, 
-                0 0 35px #bd33fd, 0 0 100px #bd33fd;
-    color: #fff;
-    border: 1px solid #fff;
-    border-radius: 8px;
-    transition: 0.2s;
+.remove_cart,.is_active{
+    color: #ff3322;
+    border-radius: 0 !important;
+    position: absolute;
+    bottom: -70px;
 }
 
-.button__sale::after {
- --slice-0: inset(50% 50% 50% 50%);
- --slice-1: inset(80% -6px 0 0);
- --slice-2: inset(50% -6px 30% 0);
- --slice-3: inset(10% -6px 85% 0);
- --slice-4: inset(40% -6px 43% 0);
- --slice-5: inset(80% -6px 5% 0);
- content: "HOVER ME";
- display: block;
- position: absolute;
- top: 0;
- left: 0;
- right: 0;
- bottom: 0;
- background: linear-gradient(45deg, transparent 3%, #00e6f6 3%, #00e6f6 5%, #ff013c 5%);
- text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px #00e6f6;
- clip-path: var(--slice-0);
+.remove_cart:hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: #ff3322 !important;
 }
 
-.button__sale:hover::after {
- animation: 1s glitch;
- animation-timing-function: steps(2, end);
+.remove_cart .in-button {
+    stroke: #ff3322 !important;
 }
 
-@keyframes glitch {
- 0% {
-  clip-path: var(--slice-1);
-  transform: translate(-20px, -10px);
- }
+.remove_cart:hover .in-button {
+    stroke: #ff3322 !important;
+}
 
- 10% {
-  clip-path: var(--slice-3);
-  transform: translate(10px, 10px);
- }
+.remove_cart span:nth-child(1),
+.remove_cart span:nth-child(2),
+.remove_cart span:nth-child(4) {
+    opacity: 0;
+    animation: none;
+}
 
- 20% {
-  clip-path: var(--slice-1);
-  transform: translate(-10px, 10px);
- }
+.remove_cart span:nth-child(3) {
+    background: #ff3322 !important;
+    bottom: 0 !important;
+    height: 3px !important;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(0);
+    animation: none;
+}
 
- 30% {
-  clip-path: var(--slice-3);
-  transform: translate(0px, 5px);
- }
+.remove_cart:hover span:nth-child(3) {
+    opacity: 1;
+    animation: removeCart 2s ease-in-out alternate !important;
+}
 
- 40% {
-  clip-path: var(--slice-2);
-  transform: translate(-5px, 0px);
- }
+@keyframes removeCart {
+    0% {
+        opacity: 0;
+        transform: scaleX(0);
+    }
 
- 50% {
-  clip-path: var(--slice-3);
-  transform: translate(5px, 0px);
- }
-
- 60% {
-  clip-path: var(--slice-4);
-  transform: translate(5px, 10px);
- }
-
- 70% {
-  clip-path: var(--slice-2);
-  transform: translate(-10px, 10px);
- }
-
- 80% {
-  clip-path: var(--slice-5);
-  transform: translate(20px, -10px);
- }
-
- 90% {
-  clip-path: var(--slice-1);
-  transform: translate(-10px, 0px);
- }
-
- 100% {
-  clip-path: var(--slice-1);
-  transform: translate(0);
- }
-} */
+    20%,
+    100% {
+        opacity: 1;
+        transform: scaleX(100%);
+    }
+}

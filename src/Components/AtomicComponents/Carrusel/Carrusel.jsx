@@ -44,9 +44,8 @@ const Carrusel = ({ loading, data, dataCart, addCart, delFromCart, title, catego
                             :
                             data.products.map((data, index) => {
                                 if (data.category === category.category1 || data.category === category.category2) {
-                                    return <SwiperSlide >
+                                    return <SwiperSlide key={index} >
                                         <Cards
-                                            key={index}
                                             data={data}
                                             dataCart={dataCart}
                                             addCart={addCart}

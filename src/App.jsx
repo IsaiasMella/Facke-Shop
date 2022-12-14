@@ -58,10 +58,9 @@ function App() {
       <NavBar dataCart={dataCart} handlePortal={handlePortal} userName={userName} />
       <Routes>
         <Route path='/' element={<Home data={data} loading={loading} addCart={addCart} dataCart={dataCart} delFromCart={delFromCart} />} />
-        <Route path='/:productName/:id' element={<ArticlePage addCart={addCart} />} />
+        <Route path='/:productName/:id' element={<ArticlePage addCart={addCart} delFromCart={delFromCart} dataCart={dataCart} />} />
         <Route path='/cart' element={<Cart dataCart={dataCart} addCart={addCart} delFromCart={delFromCart} />} />
         <Route path='/register' element={<Register />} />
-        {console.log(userName)}
         <Route path='/user' element={<UserPage userName={userName} />} />
 
       </Routes>

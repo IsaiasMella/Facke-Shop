@@ -8,8 +8,10 @@ import Loader from "../../Icons/Loader/Loader";
 import Box from "../../Icons/Box";
 import './ArticlePage.css'
 import Shield from "../../Icons/Shield";
+import AddCart from "../../Icons/AddCart";
+import RemoveCart from "../../Icons/RemoveCart";
 
-const ArticlePage = ({ addCart }) => {
+const ArticlePage = ({ addCart, delFromCart, dataCart }) => {
   window.scrollTo(0, 0)
 
   const { id, productName } = useParams()
@@ -61,11 +63,6 @@ const ArticlePage = ({ addCart }) => {
 
           <h4 className="sale__price">{data ? `$${data.price}` : ''}</h4>
 
-          <div className="container__stok">
-            <small className="indicator_stok"><b>Stock disponible</b></small>
-            <p>{`Solo quedan ${Math.floor(Math.random() * 10) + 1} unidades`}</p>
-          </div>
-
           <small className="seccion_destacada">En <span>{`12 cuotas de $${((data?.price) / 12).toFixed(2)} sin interes`}</span></small>
 
           <div className="servicios">
@@ -81,7 +78,8 @@ const ArticlePage = ({ addCart }) => {
           </div>
 
           <div className="sale__button" >
-            <Buttons text='Añadir al carrito' action={addCart} id={data?.id} />
+            <Buttons text='Añadir al carrito' action={addCart} id={data?.id} icon={<AddCart stroke='var(--violet)' clase='in-button' />} />
+            <Buttons text='Ya no lo quiero' tipo={`remove_cart ${dataCart.length > 0 ? 'is_active' : 'not_active'}`} action={dataCart.length > 0 ? delFromCart : ''} id={data?.id} icon={<RemoveCart stroke='var(--violet)' clase='in-button' />} />
           </div>
 
         </div>

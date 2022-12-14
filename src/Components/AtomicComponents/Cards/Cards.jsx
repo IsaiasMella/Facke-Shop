@@ -18,11 +18,6 @@ const Cards = ({ data, addCart, delFromCart, dataCart }) => {
         <div className="container__card-text">
           <div className="card__title">
             <h4>{`${title}`}</h4>
-            <div className="container__stock">
-              {/* <small>Stock</small>
-              <p className="unit">{Math.floor(Math.random() * 10) + 1}</p> */}
-              {/* <small>Unidades</small> */}
-            </div>
           </div>
         </div>
       </Link >
@@ -31,9 +26,10 @@ const Cards = ({ data, addCart, delFromCart, dataCart }) => {
         <div className="container__carts">
           {/* Botton remover articulo */}
           {
-            dataCart.map(item => {
+            dataCart.map((item,index) => {
               if (item.id === product) {
-                return (<div className="add_cart" onClick={() => delFromCart(product)}>
+                return (
+                <div key={index} className="add_cart" onClick={() => delFromCart(product)}>
                   <RemoveCart stroke='var(--black)' />
                 </div>)
               }

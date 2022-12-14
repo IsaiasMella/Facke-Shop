@@ -24,8 +24,8 @@ const Cart = ({ dataCart, addCart, delFromCart }) => {
     <div className='container__cart_page'>
       <div className="cart_page">
         <div className='cart__title'>
+          <TotalCart stroke='var(--black)' />
           <h3>
-            <TotalCart stroke='var(--black)' />
             Este es tu carrito
           </h3>
         </div>
@@ -45,9 +45,12 @@ const Cart = ({ dataCart, addCart, delFromCart }) => {
             })
           }
         </div>
-        <div className='container__total_pricing'>
-          {totalCart > 0 ? <p>TOTAL: ${totalCart}</p> : ''}
-        </div>
+        {totalCart > 0 ?
+          <div className='container__total_pricing'>
+            <p>TOTAL: </p>
+            <p>${totalCart}</p>
+          </div>
+          : ''}
       </div>
     </div>
   )

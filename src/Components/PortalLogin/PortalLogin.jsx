@@ -27,6 +27,7 @@ const PortalLogin = ({ handlePortal, handlerUser }) => {
     e.preventDefault()
     await axios.post('http://localhost:3001/login', userLoged)
       .then((respuesta) => {
+        console.log(respuesta)
         handlerUser(respuesta.data)
         alert('Logueo exitoso')
         handlePortal()

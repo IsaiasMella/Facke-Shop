@@ -20,7 +20,7 @@
 }
 
 .benefits_of_cart {
-    display: flex;
+    /* display: flex; */
     gap: 10px;
 }
 

@@ -22,13 +22,13 @@ const CardsOfCart = ({ producto, addCart, delFromCart, dataCart }) => {
                 <div className="text_of_cart">
                     <h4>{title}</h4>
                     <div className="benefits_of_cart">
-                        <div className="compra_protegida">
-                            <Shield stroke='var(--green)' height={21} width={21} />
-                            <small>Compra protegida por Facke Shop</small>
-                        </div>
                         <div className="envio_gratis">
                             <Box stroke='var(--green)' fill='var(--green)' height={21} width={21} />
                             <small>envio gratis</small>
+                        </div>
+                        <div className="compra_protegida">
+                            <Shield stroke='var(--green)' height={21} width={21} />
+                            <small>Compra protegida por Facke Shop</small>
                         </div>
                     </div>
                 </div>

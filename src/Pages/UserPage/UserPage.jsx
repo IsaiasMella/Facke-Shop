@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import User from '../../Icons/User'
 import './UserPage.css'
 import axios from 'axios'
@@ -6,13 +6,12 @@ import { Link } from 'react-router-dom'
 
 const UserPage = ({ userName }) => {
   const initialUser = {
-    id:''
+    id: ''
   }
 
   const [actualizarUser, setActualizarUser] = useState(userName);
   const [deleteUser, setDeletUser] = useState(initialUser);
   const form = useRef()
-
 
   const handlerChange = (e) => {
     e.preventDefault()
@@ -34,23 +33,18 @@ const UserPage = ({ userName }) => {
         console.log(err.response.data)
         alert('No se encontro usuario')
       })
-
     e.target.reset()
   }
 
-  const deleteAcount = async (e) => {
-    let newDatos = { ...deleteUser, id: userName.id }
-    setDeletUser(newDatos)
-    console.log(newDatos)
-    console.log('userName.id')
-    console.log(userName.id)
-    await axios.delete('http://localhost:3001/user/delete', deleteUser)
+  const deleteAcount = async () => {
+    await axios.delete('http://localhost:3001/user/delete/' + userName.id)
       .then((respuesta) => {
-        alert('usuario eliminado')
+        console.log(respuesta.data)
       })
+
       .catch(err => {
-        console.log(err)
-        alert('No se encontro usuario')
+        console.log(err.response.data)
+        alert(err.response.data)
       })
   }
 
@@ -60,7 +54,7 @@ const UserPage = ({ userName }) => {
       <h3 className='saludo__user'>Hola {`${userName.name}`}</h3>
       <p className='saludo__user'>pode cambiar tus datos</p>
       <form onSubmit={handleSubmit} className='registro' ref={form} >
-        <input onChange={handlerChange} placeholder={userName.name} name='name' className='input__registro_actualizacion' type="text"  />
+        <input onChange={handlerChange} placeholder={userName.name} name='name' className='input__registro_actualizacion' type="text" />
         <input onChange={handlerChange} placeholder={userName.last_name} name='last_name' className='input__registro_actualizacion' type="text" />
         <input onChange={handlerChange} placeholder={userName.email} name='email' className='input__registro_actualizacion' type="mail" />
         <input onChange={handlerChange} placeholder={userName.password} name='password' className='input__registro_actualizacion' type="text" />
@@ -68,7 +62,7 @@ const UserPage = ({ userName }) => {
         <button type='submit' className='button__registro'>Registrarse
         </button>
       </form>
-      <small className='borrar__cuenta' onClick={()=> deleteAcount()}>Borrar cuenta</small>
+      <small className='borrar__cuenta' onClick={deleteAcount}>Borrar cuenta</small>
     </div>
   )
 }
