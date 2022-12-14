@@ -6,7 +6,7 @@ import './PortalLogin.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-const PortalLogin = ({ handlePortal, handlerUser }) => {
+const PortalLogin = ({ handlePortal, handlerUser, setLogued }) => {
   const handlePropagation = (e) => e.stopPropagation()
 
   const initialUserLoged = {
@@ -27,13 +27,12 @@ const PortalLogin = ({ handlePortal, handlerUser }) => {
     e.preventDefault()
     await axios.post('http://localhost:3001/login', userLoged)
       .then((respuesta) => {
-        console.log(respuesta)
         handlerUser(respuesta.data)
-        alert('Logueo exitoso')
+        setLogued(true)
         handlePortal()
       })
       .catch(err => {
-        console.log(err.response.data)
+        console.log(err)
       })
     e.target.reset()
   }

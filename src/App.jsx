@@ -1,4 +1,4 @@
-import { useReducer, useState } from 'react'
+import { useEffect, useReducer, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import { Footer } from './Components/Footer/Footer'
@@ -12,6 +12,14 @@ import Register from './Pages/Registration/Register'
 import UserPage from './Pages/UserPage/UserPage'
 import { TYPES } from './Reducer/Action'
 import { initialState, shoppingReducer } from './Reducer/ShoppingReducer'
+
+const initialUserState = {
+  email: '',
+  id: 0,
+  last_name: '',
+  name: '',
+  password: ''
+}
 
 function App() {
   const { data, loading } = useFetch("https://dummyjson.com/products")
@@ -46,22 +54,26 @@ function App() {
     setPortalOpen(!portalOpen)
   }
 
+  //saber si esta logueado
+  const [logued, setLogued] = useState(false);
+
   //estado con info del usuario
-  const [userName, setUserName] = useState();
+  const [userName, setUserName] = useState(initialUserState);
+
   const handlerUser = (user) => {
     setUserName(user)
   }
 
   return (
     <div className="App">
-      {portalOpen && <PortalLogin handlePortal={handlePortal} handlerUser={handlerUser} />}
-      <NavBar dataCart={dataCart} handlePortal={handlePortal} userName={userName} />
+      {portalOpen && <PortalLogin handlePortal={handlePortal} handlerUser={handlerUser} setLogued={setLogued} />}
+      <NavBar dataCart={dataCart} handlePortal={handlePortal} userName={userName} logued={logued} setLogued={setLogued} initialUserState={initialUserState} handlerUser={handlerUser} />
       <Routes>
         <Route path='/' element={<Home data={data} loading={loading} addCart={addCart} dataCart={dataCart} delFromCart={delFromCart} />} />
         <Route path='/:productName/:id' element={<ArticlePage addCart={addCart} delFromCart={delFromCart} dataCart={dataCart} />} />
         <Route path='/cart' element={<Cart dataCart={dataCart} addCart={addCart} delFromCart={delFromCart} />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/user' element={<UserPage userName={userName} />} />
+        <Route path='/register' element={<Register setLogued={setLogued} />} />
+        <Route path='/user' element={<UserPage userName={userName} setLogued={setLogued} handlerUser={handlerUser} />} />
 
       </Routes>
       {/* <UserPage/> */}

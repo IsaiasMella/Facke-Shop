@@ -2,9 +2,9 @@ import React, { useRef, useState } from 'react'
 import User from '../../Icons/User'
 import './Register.css'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom"
 
-const Register = () => {
+const Register = ({ setLogued }) => {
   const initialUser = {
     name: '',
     last_name: '',
@@ -13,6 +13,7 @@ const Register = () => {
   }
   const [dataUser, setDataUser] = useState(initialUser);
   const [userSend, setUserSend] = useState(false);
+  const navigate = useNavigate()
   const form = useRef()
 
 
@@ -33,7 +34,9 @@ const Register = () => {
         alert('Usted ya posee una cuenta')
       })
 
+    setLogued(true)
     e.target.reset()
+    navigate("/");
   }
 
   return (
@@ -45,8 +48,7 @@ const Register = () => {
         <input onChange={handlerChange} name='email' className='input__registro ' type="mail" placeholder='Mail' required />
         <input onChange={handlerChange} name='password' className='input__registro ' type="password" placeholder='Contraseña' required />
 
-        <button type='submit' className='button__registro'>Registrarse
-        </button>
+        <button type='submit' className='button__registro'>Registrarse</button>
       </form>
     </div>
   )
