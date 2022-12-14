@@ -38,7 +38,6 @@ const PortalLogin = ({ handlePortal, handlerUser, setLogued }) => {
   }
 
   return ReactDOM.createPortal(
-    <RemoveScroll>
       <div className='container__portal' onClick={() => handlePortal()} >
         <div className="portal_login" onClick={(e) => handlePropagation(e)} >
           <img src={FackeShop} alt="FackeShop" />
@@ -50,7 +49,6 @@ const PortalLogin = ({ handlePortal, handlerUser, setLogued }) => {
           <Link to="/register" className='register' onClick={()=>handlePortal()} >Registrarse</Link>
         </div>
       </div>
-    </RemoveScroll>
     , document.getElementById('portal')
   )
 }

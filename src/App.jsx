@@ -24,20 +24,26 @@ const initialUserState = {
 function App() {
   const { data, loading } = useFetch("https://dummyjson.com/products")
   // const category = useFetch("https://dummyjson.com/products/categories")
-
+  
   //Estado de portales
   const [portalOpen, setPortalOpen] = useState(false);
-
+  
   //carga el reducer con toda la respuesta para despues poder iterar y guardat TODOS los 
   //datos en el carrito
   initialState.dataReducer = data
-
+  
   const [state, dispatch] = useReducer(shoppingReducer, initialState)
+  //saber si esta logueado
+  const [logued, setLogued] = useState(false);
   const { dataCart } = state
 
   //Handlers del carrito
   const addCart = (id) => {
-    dispatch({ type: TYPES.ADD_CART, payload: id })
+    if(logued){
+      dispatch({ type: TYPES.ADD_CART, payload: id })
+    }else{
+      setPortalOpen(true)
+    }
   }
 
   const delFromCart = (id, all = false) => {
@@ -54,8 +60,6 @@ function App() {
     setPortalOpen(!portalOpen)
   }
 
-  //saber si esta logueado
-  const [logued, setLogued] = useState(false);
 
   //estado con info del usuario
   const [userName, setUserName] = useState(initialUserState);
