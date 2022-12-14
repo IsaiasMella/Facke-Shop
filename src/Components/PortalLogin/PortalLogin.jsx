@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react'
 import ReactDOM from 'react-dom'
 import FackeShop from '../../Images/FackeShop.png'
-import { RemoveScroll } from 'react-remove-scroll'
 import './PortalLogin.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
