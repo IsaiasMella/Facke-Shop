@@ -8,14 +8,17 @@ import { Link, useNavigate } from "react-router-dom";
 
 const NavBar = ({ dataCart, handlePortal, userName, logued, setLogued, initialUserState, handlerUser }) => {
   const navigation = useNavigate()
+
+  //comprobacion para saber si el carrito esta cargado
   let comprobacion = dataCart.length > 0
 
+  //deslogueo
   const handleUnsubscribe = () => {
     handlerUser(initialUserState)
     setLogued(false)
+    dataCart = []
     navigation('/')
   }
-
 
   return (
     <div className="container__navbar">

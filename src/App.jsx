@@ -24,24 +24,27 @@ const initialUserState = {
 function App() {
   const { data, loading } = useFetch("https://dummyjson.com/products")
   // const category = useFetch("https://dummyjson.com/products/categories")
-  
+
   //Estado de portales
   const [portalOpen, setPortalOpen] = useState(false);
-  
-  //carga el reducer con toda la respuesta para despues poder iterar y guardat TODOS los 
-  //datos en el carrito
+
+  // carga el estado inicial para el reducer con toda la respuesta para despues poder iterar y guardat TODOS los datos en el carrito
   initialState.dataReducer = data
-  
+
+  //carga el reducer con el estado inicial
   const [state, dispatch] = useReducer(shoppingReducer, initialState)
+
   //saber si esta logueado
   const [logued, setLogued] = useState(false);
+
+  //del estado que devuelve el reducer solamente saco lo que haya en el carrito
   const { dataCart } = state
 
   //Handlers del carrito
   const addCart = (id) => {
-    if(logued){
+    if (logued) {
       dispatch({ type: TYPES.ADD_CART, payload: id })
-    }else{
+    } else {
       setPortalOpen(true)
     }
   }
@@ -60,10 +63,10 @@ function App() {
     setPortalOpen(!portalOpen)
   }
 
-
   //estado con info del usuario
   const [userName, setUserName] = useState(initialUserState);
 
+  //carga los datos del usuario para distribuirlos
   const handlerUser = (user) => {
     setUserName(user)
   }
@@ -72,15 +75,15 @@ function App() {
     <div className="App">
       {portalOpen && <PortalLogin handlePortal={handlePortal} handlerUser={handlerUser} setLogued={setLogued} />}
       <NavBar dataCart={dataCart} handlePortal={handlePortal} userName={userName} logued={logued} setLogued={setLogued} initialUserState={initialUserState} handlerUser={handlerUser} />
+
       <Routes>
         <Route path='/' element={<Home data={data} loading={loading} addCart={addCart} dataCart={dataCart} delFromCart={delFromCart} />} />
         <Route path='/:productName/:id' element={<ArticlePage addCart={addCart} delFromCart={delFromCart} dataCart={dataCart} />} />
         <Route path='/cart' element={<Cart dataCart={dataCart} addCart={addCart} delFromCart={delFromCart} />} />
-        <Route path='/register' element={<Register setLogued={setLogued} />} />
+        <Route path='/register' element={<Register setLogued={setLogued} handlerUser={handlerUser} />} />
         <Route path='/user' element={<UserPage userName={userName} setLogued={setLogued} handlerUser={handlerUser} />} />
-
       </Routes>
-      {/* <UserPage/> */}
+
       <Footer />
     </div>
   )

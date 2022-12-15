@@ -4,15 +4,16 @@ import './Register.css'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom"
 
-const Register = ({ setLogued }) => {
+
+const Register = ({ setLogued,handlerUser }) => {
   const initialUser = {
     name: '',
     last_name: '',
     email: '',
     password: ''
   }
+  
   const [dataUser, setDataUser] = useState(initialUser);
-  const [userSend, setUserSend] = useState(false);
   const navigate = useNavigate()
   const form = useRef()
 
@@ -24,11 +25,12 @@ const Register = ({ setLogued }) => {
     setDataUser(newDatos)
   }
 
+  //envia la info del usuario para que el back se encargue de registrarla en BD
   const handleSubmit = async (e) => {
     e.preventDefault()
     let res = ''
     await axios.post('http://localhost:3001/register', dataUser)
-      .then((respuesta) => res = respuesta)
+      .then(() => handlerUser(dataUser))
       .catch(err => {
         console.log(err.response.data)
         alert('Usted ya posee una cuenta')

@@ -12,8 +12,10 @@ const PortalLogin = ({ handlePortal, handlerUser, setLogued }) => {
     email: '',
     password: ''
   }
+  //estado para cargar el objeto con la info que ingreso el usuario, despues se envia al back
   const [userLoged, setUserLoged] = useState(initialUserLoged);
   const formLogin = useRef()
+
 
   const handlerChangeLogin = (e) => {
     let { name, value } = e.target
@@ -22,6 +24,7 @@ const PortalLogin = ({ handlePortal, handlerUser, setLogued }) => {
     setUserLoged(newDatos)
   }
 
+  //envia los datos al back
   const handleSubmitLogin = async (e) => {
     e.preventDefault()
     await axios.post('http://localhost:3001/login', userLoged)

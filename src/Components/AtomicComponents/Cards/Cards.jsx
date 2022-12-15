@@ -38,7 +38,6 @@ const Cards = ({ data, addCart, delFromCart, dataCart }) => {
           <div className="add_cart" onClick={() => addCart(product)}>
             <AddCart stroke='var(--black)' />
           </div>
-
         </div>
       </div>
     </div >

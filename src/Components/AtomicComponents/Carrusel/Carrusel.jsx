@@ -23,19 +23,19 @@ const Carrusel = ({ loading, data, dataCart, addCart, delFromCart, title, catego
                         navigation={true}
                         breakpoints={{
                             0: {
-                                slidesPerView:1
+                                slidesPerView: 1
                             },
                             480: {
-                                slidesPerView:2,
+                                slidesPerView: 2,
                                 spaceBetween: 30
                             },
                             768: {
-                                slidesPerView:3,
-                                spaceBetween:30
+                                slidesPerView: 3,
+                                spaceBetween: 30
                             },
                             1024: {
-                                slidesPerView:4,
-                                spaceBetween:30
+                                slidesPerView: 4,
+                                spaceBetween: 30
                             },
                         }}
                     >

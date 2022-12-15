@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
 import User from '../../Icons/User'
 import './UserPage.css'
 import axios from 'axios'
@@ -9,6 +9,7 @@ const UserPage = ({ userName, setLogued, handlerUser }) => {
   const navigate = useNavigate()
   const form = useRef()
 
+  //toma los cambios y los va aplicando en tiempo real
   const handlerChange = (e) => {
     let { name, value } = e.target
     let newDatos = { ...actualizarUser, [name]: value }
@@ -17,6 +18,7 @@ const UserPage = ({ userName, setLogued, handlerUser }) => {
     handlerUser(actualizarUser)
   }
 
+  //envia los datos para poder actualizarlos al back
   const handleSubmit = async (e) => {
     e.preventDefault()
     await axios.put('http://localhost:3001/user', actualizarUser)
@@ -32,6 +34,7 @@ const UserPage = ({ userName, setLogued, handlerUser }) => {
     e.target.reset()
   }
 
+  //envia al back la info necesaria para poder eliminar la cuenta
   const deleteAcount = async () => {
     await axios.delete('http://localhost:3001/user/delete/' + userName.id)
       .then(() => {
